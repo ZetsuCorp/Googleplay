@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zetsu EDU App Store — MAKE IT MAKE MONEY</title>
+<style>
+  :root{
+    --bg:#0e1116;
+    --surface:#161a21;
+    --surface2:#1d222b;
+    --border:#262c37;
+    --text:#e8eaed;
+    --text-dim:#9aa0a6;
+    --accent:#01875f;
+    --accent2:#01a884;
+    --live:#01875f;
+    --dev:#e8710a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Segoe UI",Roboto,Arial,sans-serif;
+    padding-bottom:60px;
+  }
+  header{
+    background:var(--surface);
+    border-bottom:1px solid var(--border);
+    padding:18px 24px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    position:sticky;
+    top:0;
+    z-index:10;
+  }
+  .logo{
+    width:40px;height:40px;border-radius:10px;
+    background:linear-gradient(135deg,var(--accent2),#0a5c46);
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;font-size:18px;color:#fff;
+  }
+  header h1{font-size:18px;font-weight:600;letter-spacing:.2px;}
+  header p{font-size:12px;color:var(--text-dim);}
+  .hero{
+    padding:40px 24px 24px;
+    max-width:1200px;margin:0 auto;
+  }
+  .hero h2{
+    font-size:32px;
+    font-weight:800;
+    letter-spacing:-0.5px;
+    background:linear-gradient(90deg,#fff,#9aa0a6);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero span{
+    display:block;
+    color:var(--accent2);
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    margin-bottom:6px;
+  }
+  .filters{
+    max-width:1200px;margin:0 auto;
+    padding:0 24px 20px;
+    display:flex;gap:10px;flex-wrap:wrap;
+  }
+  .filter-btn{
+    background:var(--surface2);
+    border:1px solid var(--border);
+    color:var(--text-dim);
+    padding:8px 16px;
+    border-radius:20px;
+    font-size:13px;
+    cursor:pointer;
+    transition:.15s;
+  }
+  .filter-btn:hover{border-color:var(--accent2);color:var(--text);}
+  .filter-btn.active{background:var(--accent2);color:#04140f;border-color:var(--accent2);font-weight:600;}
+  .grid{
+    max-width:1200px;margin:0 auto;
+    padding:0 24px;
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    gap:16px;
+  }
+  .card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    transition:transform .15s, border-color .15s;
+  }
+  .card:hover{
+    transform:translateY(-3px);
+    border-color:var(--accent2);
+  }
+  .card-top{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+  }
+  .icon{
+    width:56px;height:56px;
+    border-radius:14px;
+    flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;
+    font-size:20px;
+    color:#fff;
+  }
+  .card-title{
+    font-size:15px;font-weight:600;line-height:1.3;
+  }
+  .badge-row{
+    display:flex;gap:8px;align-items:center;margin-top:4px;
+  }
+  .status{
+    font-size:11px;font-weight:700;
+    padding:3px 9px;border-radius:10px;
+    text-transform:uppercase;
+    letter-spacing:.4px;
+  }
+  .status.live{background:rgba(1,135,95,.18);color:#28d19a;}
+  .status.dev{background:rgba(232,113,10,.18);color:#ffa64d;}
+  .desc{
+    font-size:13px;
+    color:var(--text-dim);
+    line-height:1.5;
+    flex-grow:1;
+  }
+  .progress-wrap{
+    display:flex;align-items:center;gap:8px;
+  }
+  .progress-bar{
+    flex-grow:1;
+    height:6px;
+    background:var(--surface2);
+    border-radius:3px;
+    overflow:hidden;
+  }
+  .progress-fill{
+    height:100%;
+    border-radius:3px;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+  }
+  .progress-pct{
+    font-size:11px;color:var(--text-dim);min-width:32px;text-align:right;
+  }
+  .cta{
+    margin-top:6px;
+    background:var(--surface2);
+    border:1px solid var(--border);
+    color:var(--text);
+    padding:9px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+    text-align:center;
+    cursor:pointer;
+    transition:.15s;
+  }
+  .card:hover .cta{background:var(--accent2);color:#04140f;border-color:var(--accent2);}
+  footer{
+    text-align:center;
+    padding:40px 20px 10px;
+    color:var(--text-dim);
+    font-size:12px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Z</div>
+  <div>
+    <h1>Zetsu EDU App Store</h1>
+    <p>Zetsumetsu Corporation</p>
+  </div>
+</header>
+
+<div class="hero">
+  <span>MAKE IT MAKE MONEY</span>
+  <h2>All the ways "it" can make money.</h2>
+</div>
+
+<div class="filters">
+  <button class="filter-btn active" data-filter="all">All Apps</button>
+  <button class="filter-btn" data-filter="live">Live Now</button>
+  <button class="filter-btn" data-filter="dev">In Development</button>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<footer>The Zetsumetsu Corporation — Zetsu EDU</footer>
+
+<script>
+const apps = [
+  {name:"ZETSU HOW 2", desc:"Bi weekly how-2 mini guides to follow and create with. DM once you're ready to learn how to earn with them.", pct:100},
+  {name:"Build Your Brand. Free Analysis.", desc:"Do you have a YouTube, Skool, Business, or Social Community? Get your free PATH analysis. Deep audit, social ranking, growth map, lead sourcing — 100% free.", pct:100},
+  {name:"CIRCLE FXZ", desc:"Stylized profile FX. High-performance image processing for stylized circular profile pictures and tokens. Includes a pro GIF creator for short clips.", pct:0},
+  {name:"Business Builder Audio Course", desc:"An audio course for people building real businesses. Structure ideas, make decisions, and turn work into something that runs and grows. Made to listen to while building.", pct:100},
+  {name:"Luxury QR CodeZ", desc:"From Zetsumetsu EOe — where utility meets luxury design. Transform ordinary links into scannable works of art, crafted to elevate your brand at every touchpoint.", pct:0},
+  {name:"Zetsu EDU AI Ad Generator", desc:"Stop wasting hours on ad copy. One input. 24 styles. Instant results.", pct:0},
+  {name:"Zetsu How to Sell Anything", desc:"Input your product or service and get a direct strategy on who to sell it to and what to say. Type a request in the box to get a structured sales blueprint.", pct:0},
+  {name:"Zetsu EOe Comix", desc:"Turn your own idea into a comic.", pct:0},
+  {name:"Idea 2 Reality", desc:"Turn your raw thought into a tangible artifact. Answer 8 questions to crystalize your concept and let Zetsu EDU AI render the possibility.", pct:100},
+  {name:"Zetsu's Private Book Tools", desc:"Bring your story to life with Zetsu EDU's new apps.", pct:0},
+  {name:"Zetsu Media Tools", desc:"A suite of media creation tools from Zetsu EDU.", pct:100},
+  {name:"Zetsu EDU Outfit Oracle", desc:"Take an outfit from any photo or cartoon and make it real to try on using your own photos.", pct:0},
+  {name:"VIEWZ AI Shorts Studio", desc:"Create your first AI shorts movie.", pct:100},
+  {name:"Studio ReelZ", desc:"A pure visual engine. A presentation-first visual platform built for production-grade vertical cinematography.", pct:0},
+  {name:"FreeDoorZ", desc:"Find free things on the internet near you, for you, now.", pct:0},
+  {name:"Echo PreZZ", desc:"Content fission converter. Paste any article URL — extract the complete content, rewrite it entirely, and prepare it for publishing. Summary, rewrite, refactor, mask.", pct:0},
+  {name:"Zetsu EOe Bookz Store", desc:"Create, promote, review.", pct:100},
+  {name:"SignalZ", desc:"Social media the Zetsu way. The wall of the internet.", pct:0},
+  {name:"My WindowZ", desc:"My Window — profile portfolio creator.", pct:0},
+  {name:"Expert Google My Business Management Services", desc:"Choose from tailored marketing service options to match your business needs — coaching on managing Google Maps, or full-service management.", pct:0},
+  {name:"N8N Anything", desc:"Automate anything with N8N. AI automation mega course: complete 5-hour training on the ultimate N8N AI automation guide.", pct:0},
+  {name:"The Comic", desc:"The Zetsumetsu comic.", pct:100},
+];
+
+const colors = ["#01875f","#8430ce","#e8710a","#1a73e8","#c5221f","#01a884","#9334e6","#188038"];
+
+function initials(name){
+  const words = name.replace(/[^A-Za-z0-9 ]/g," ").split(" ").filter(Boolean);
+  return (words[0]?.[0]||"Z").toUpperCase() + (words[1]?.[0]||"").toUpperCase();
+}
+
+const grid = document.getElementById("grid");
+
+function render(filter){
+  grid.innerHTML = "";
+  apps.forEach((app, i) => {
+    const isLive = app.pct === 100;
+    if(filter === "live" && !isLive) return;
+    if(filter === "dev" && isLive) return;
+    const card = document.createElement("div");
+    card.className = "card";
+    const color = colors[i % colors.length];
+    card.innerHTML = `
+      <div class="card-top">
+        <div class="icon" style="background:${color}">${initials(app.name)}</div>
+        <div>
+          <div class="card-title">${app.name}</div>
+          <div class="badge-row">
+            <span class="status ${isLive ? 'live' : 'dev'}">${isLive ? 'Live Now' : 'In Development'}</span>
+          </div>
+        </div>
+      </div>
+      <div class="desc">${app.desc}</div>
+      <div class="progress-wrap">
+        <div class="progress-bar"><div class="progress-fill" style="width:${app.pct}%"></div></div>
+        <div class="progress-pct">${app.pct}%</div>
+      </div>
+      <div class="cta">${isLive ? 'Open' : 'Notify Me'}</div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+document.querySelectorAll(".filter-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    render(btn.dataset.filter);
+  });
+});
+
+render("all");
+</script>
+
+</body>
+</html>
